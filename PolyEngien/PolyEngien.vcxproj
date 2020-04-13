@@ -11,9 +11,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\PolyEngien\Log.cpp" />
     <ClCompile Include="src\PolyEngien\Application.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\PolyEngien\Log.h" />
     <ClInclude Include="src\PolyEngien.h" />
     <ClInclude Include="src\PolyEngien\Application.h" />
     <ClInclude Include="src\PolyEngien\Core.h" />
@@ -69,6 +71,7 @@
       <ConformanceMode>true</ConformanceMode>
       <UndefinePreprocessorDefinitions>
       </UndefinePreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)PolyEngien\vendor\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -85,6 +88,7 @@
       <ConformanceMode>true</ConformanceMode>
       <UndefinePreprocessorDefinitions>
       </UndefinePreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)PolyEngien\vendor\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
