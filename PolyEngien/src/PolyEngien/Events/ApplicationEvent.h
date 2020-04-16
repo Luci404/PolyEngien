@@ -1,7 +1,6 @@
 #pragma once
 
 #include "PolyEngien/Events/Event.h"
-#include <sstream>
 
 namespace PolyEngien {
 

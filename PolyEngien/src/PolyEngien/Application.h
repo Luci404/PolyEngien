@@ -1,6 +1,8 @@
 #pragma once
 
 #include "PolyEngien/Core.h"
+#include "Events/Event.h"
+#include "Window.h"
 
 namespace PolyEngien {
 
@@ -11,6 +13,10 @@ namespace PolyEngien {
 		virtual ~Application();
 
 		void Run();
+
+	private:
+		std::unique_ptr<Window> m_Window;
+		bool m_Running = true;
 	};
 
 	// To be defined in client

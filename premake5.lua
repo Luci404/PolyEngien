@@ -8,6 +8,11 @@ workspace "PolyEngien"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+includeDir = {}
+includeDir["GLFW"] = "PolyEngien/vendor/GLFW/include"
+
+include "PolyEngien/vendor/GLFW"
+
 project "PolyEngien"
     location "PolyEngien"
     kind "SharedLib"
@@ -16,6 +21,9 @@ project "PolyEngien"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+    pchheader "pepch.h"
+    pchsource "PolyEngien/src/pepch.cpp"
+
     files { 
         "%{prj.name}/src/**.h", 
         "%{prj.name}/src/**.cpp" 
@@ -23,8 +31,14 @@ project "PolyEngien"
 
     includedirs {
         "%{prj.name}/vendor/spdlog/include",
-        "%{prj.name}/src"
-	}
+        "%{prj.name}/src",
+        "%{includeDir.GLFW}"
+    }
+
+    links {
+        "GLFW",
+        "opengl32.lib"
+    }
 
     filter "system:windows"
         cppdialect "C++17"
@@ -43,6 +57,9 @@ project "PolyEngien"
 filter "configurations:Debug"
     defines { "PE_DEBUG" }
     symbols "On"
+    defines {
+        "PE_ENABLE_ASSERTS"
+	}
 
 filter "configurations:Release"
     defines { "PE_RELEASE" }
@@ -68,11 +85,11 @@ project "PolyViewer"
     includedirs {
         "PolyEngien/vendor/spdlog/include",
         "PolyEngien/src"
-	}
+    }
 
     links {
         "PolyEngien"
-	}
+    }
 
     filter "system:windows"
         cppdialect "C++17"

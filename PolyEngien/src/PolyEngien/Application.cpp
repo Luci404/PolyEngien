@@ -1,6 +1,6 @@
+#include "pepch.h"
 #include "PolyEngien/Application.h"
 
-#include "PolyEngien/Events/Event.h"
 #include "PolyEngien/Events/ApplicationEvent.h"
 #include "PolyEngien/Log.h"
 
@@ -8,7 +8,7 @@ namespace PolyEngien {
 
 	Application::Application()
 	{
-
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application()
@@ -18,9 +18,9 @@ namespace PolyEngien {
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(1280, 720);
-		PE_TRACE(e);
-
-		while (true);
+		while (true)
+		{
+			m_Window->OnUpdate();
+		}
 	}
 }
