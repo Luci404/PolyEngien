@@ -1,6 +1,7 @@
 #pragma once
 
 #include "PolyEngien/Core.h"
+#include "Events/ApplicationEvent.h"
 #include "Events/Event.h"
 #include "Window.h"
 
@@ -14,7 +15,10 @@ namespace PolyEngien {
 
 		void Run();
 
+		void OnEvent(Event& e);
 	private:
+		bool OnWindowClose(WindowCloseEvent& e);
+
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 	};

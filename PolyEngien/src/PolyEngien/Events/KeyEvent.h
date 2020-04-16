@@ -1,30 +1,29 @@
 #pragma once
 
-#include "PolyEngien/Events/Event.h"
-#include "PolyEngien/Core/Input.h"
+#include "Event.h"
 
 namespace PolyEngien {
 
-	class KeyEvent : public Event
+	class POLYENGIEN_API KeyEvent : public Event
 	{
 	public:
-		KeyCode GetKeyCode() const { return m_KeyCode; }
+		inline int GetKeyCode() const { return m_KeyCode; }
 
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 	protected:
-		KeyEvent(KeyCode keycode)
+		KeyEvent(int keycode)
 			: m_KeyCode(keycode) {}
 
-		KeyCode m_KeyCode;
+		int m_KeyCode;
 	};
 
-	class KeyPressedEvent : public KeyEvent
+	class POLYENGIEN_API KeyPressedEvent : public KeyEvent
 	{
 	public:
-		KeyPressedEvent(KeyCode keycode, int repeatCount)
+		KeyPressedEvent(int keycode, int repeatCount)
 			: KeyEvent(keycode), m_RepeatCount(repeatCount) {}
 
-		int GetRepeatCount() const { return m_RepeatCount; }
+		inline int GetRepeatCount() const { return m_RepeatCount; }
 
 		std::string ToString() const override
 		{
@@ -38,10 +37,10 @@ namespace PolyEngien {
 		int m_RepeatCount;
 	};
 
-	class KeyReleasedEvent : public KeyEvent
+	class POLYENGIEN_API KeyReleasedEvent : public KeyEvent
 	{
 	public:
-		KeyReleasedEvent(KeyCode keycode)
+		KeyReleasedEvent(int keycode)
 			: KeyEvent(keycode) {}
 
 		std::string ToString() const override
@@ -52,21 +51,5 @@ namespace PolyEngien {
 		}
 
 		EVENT_CLASS_TYPE(KeyReleased)
-	};
-
-	class KeyTypedEvent : public KeyEvent
-	{
-	public:
-		KeyTypedEvent(KeyCode keycode)
-			: KeyEvent(keycode) {}
-
-		std::string ToString() const override
-		{
-			std::stringstream ss;
-			ss << "KeyTypedEvent: " << m_KeyCode;
-			return ss.str();
-		}
-
-		EVENT_CLASS_TYPE(KeyTyped)
 	};
 }
