@@ -11,9 +11,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 includeDir = {}
 includeDir["GLFW"] = "PolyEngien/vendor/GLFW/include"
 includeDir["Glad"] = "PolyEngien/vendor/Glad/include"
+includeDir["ImGui"] = "PolyEngien/vendor/ImGui"
 
 include "PolyEngien/vendor/GLFW"
 include "PolyEngien/vendor/Glad"
+include "PolyEngien/vendor/ImGui"
+
 
 project "PolyEngien"
     location "PolyEngien"
@@ -35,12 +38,14 @@ project "PolyEngien"
         "%{prj.name}/vendor/spdlog/include",
         "%{prj.name}/src",
         "%{includeDir.GLFW}",
-        "%{includeDir.Glad}"
+        "%{includeDir.Glad}",
+        "%{includeDir.ImGui}"
     }
 
     links {
         "GLFW",
         "GLAD",
+        "ImGui",
         "opengl32.lib"
     }
 
@@ -52,7 +57,8 @@ project "PolyEngien"
         defines {
             "PE_PLATFORM_WINDOWS",
             "PE_BUILD_DLL",
-            "GLFW_INCLUDE_NONE"
+            "GLFW_INCLUDE_NONE",
+            "IMGUI_IMPL_OPENGL_LOADER_GLAD"
         }
 
         postbuildcommands {

@@ -10,7 +10,7 @@ public:
 
 	void OnUpdate() override
 	{
-		PE_INFO("ExampleLayer::Update");
+		//PE_INFO("ExampleLayer::Update");
 	}
 
 	void OnEvent(PolyEngien::Event& event) override
@@ -25,6 +25,7 @@ public:
 	PolyViewer() 
 	{
 		PushLayer(new ExampleLayer());
+		PushOverlay(new PolyEngien::ImGuiLayer());
 	}
 
 	~PolyViewer() {}
