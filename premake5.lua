@@ -1,5 +1,6 @@
 workspace "PolyEngien"
     architecture "x64"
+    startproject "PolyViewer"
     configurations { 
         "Debug", 
         "Release", 
@@ -13,10 +14,11 @@ includeDir["GLFW"] = "PolyEngien/vendor/GLFW/include"
 includeDir["Glad"] = "PolyEngien/vendor/Glad/include"
 includeDir["ImGui"] = "PolyEngien/vendor/ImGui"
 
-include "PolyEngien/vendor/GLFW"
-include "PolyEngien/vendor/Glad"
-include "PolyEngien/vendor/ImGui"
-
+group "Dependencies"
+    include "PolyEngien/vendor/GLFW"
+    include "PolyEngien/vendor/Glad"
+    include "PolyEngien/vendor/ImGui"
+group ""
 
 project "PolyEngien"
     location "PolyEngien"
@@ -62,7 +64,7 @@ project "PolyEngien"
         }
 
         postbuildcommands {
-            ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/PolyViewer")
+            ("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/PolyViewer/\"")
         }
     
 filter "configurations:Debug"
