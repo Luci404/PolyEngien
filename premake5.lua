@@ -20,10 +20,13 @@ group "Dependencies"
     include "PolyEngien/vendor/ImGui"
 group ""
 
+
+
 project "PolyEngien"
     location "PolyEngien"
     kind "SharedLib"
     language "C++"
+    staticruntime "off"
    
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -53,7 +56,6 @@ project "PolyEngien"
 
     filter "system:windows"
         cppdialect "C++17"
-        staticruntime "On"
         systemversion "latest" 
         
         defines {
@@ -67,23 +69,20 @@ project "PolyEngien"
             ("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/PolyViewer/\"")
         }
     
-filter "configurations:Debug"
-    defines { "PE_DEBUG" }
-    symbols "On"
-    buildoptions "/MDd"
-    defines {
-        "PE_ENABLE_ASSERTS"
-	}
+    filter "configurations:Debug"
+        defines { "PE_DEBUG" }
+        symbols "On"
+       	runtime "Debug"
 
-filter "configurations:Release"
-    defines { "PE_RELEASE" }
-    buildoptions "/MD"
-    optimize "On"
+    filter "configurations:Release"
+        defines { "PE_RELEASE" }
+        runtime "Release"
+        optimize "On"
 
-filter "configurations:Dist"
-    defines { "PE_DIST" }
-    buildoptions "/MD"
-    optimize "On"
+    filter "configurations:Dist"
+        defines { "PE_DIST" }
+        runtime "Release"
+        optimize "On"
 
 
 
@@ -91,6 +90,7 @@ project "PolyViewer"
     location "PolyViewer"
     kind "ConsoleApp"
     language "C++"
+    staticruntime "off"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -111,24 +111,23 @@ project "PolyViewer"
 
     filter "system:windows"
         cppdialect "C++17"
-        staticruntime "On"
         systemversion "latest" 
         
         defines {
             "PE_PLATFORM_WINDOWS"
         }
     
-filter "configurations:Debug"
-    defines { "PE_DEBUG" }
-    buildoptions "/MDd"
-    symbols "On"
+    filter "configurations:Debug"
+        defines { "PE_DEBUG" }
+        runtime "Debug"
+        symbols "On"
 
-filter "configurations:Release"
-    defines { "PE_RELEASE" }
-    buildoptions "/MD"
-    optimize "On"
+    filter "configurations:Release"
+        defines { "PE_RELEASE" }
+        runtime "Release"
+        optimize "On"
 
-filter "configurations:Dist"
-    defines { "PE_DIST" }
-    buildoptions "/MD"
-    optimize "On"
+    filter "configurations:Dist"
+        defines { "PE_DIST" }
+        runtime "Release"
+        optimize "On"
