@@ -10,13 +10,12 @@ public:
 
 	void OnUpdate() override
 	{
-		//PE_INFO("ExampleLayer::Update");
+		if (PolyEngien::Input::IsKeyPressed(PE_KEY_TAB))
+			PE_INFO("Tab key is pressed!");
 	}
 
 	void OnEvent(PolyEngien::Event& event) override
-	{
-		PE_TRACE("{0}", event);
-	}
+	{}
 };
 
 class PolyViewer : public PolyEngien::Application

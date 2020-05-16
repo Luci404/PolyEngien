@@ -3,6 +3,8 @@
 
 #include <glad/glad.h>
 
+#include <PolyEngien/Input.h>
+
 namespace PolyEngien {
 
 	#define BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)
@@ -61,6 +63,9 @@ namespace PolyEngien {
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
+
+			auto [x, y] = Input::GetMousePosition();
+			PE_CORE_TRACE("{0}, {1}", x, y);
 
 			m_Window->OnUpdate();
 		}
