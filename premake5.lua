@@ -9,11 +9,11 @@ workspace "PolyEngien"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-includeDir = {}
-includeDir["GLFW"] = "PolyEngien/vendor/GLFW/include"
-includeDir["Glad"] = "PolyEngien/vendor/Glad/include"
-includeDir["ImGui"] = "PolyEngien/vendor/ImGui"
-
+IncludeDir = {}
+IncludeDir["GLFW"] = "PolyEngien/vendor/GLFW/include"
+IncludeDir["Glad"] = "PolyEngien/vendor/Glad/include"
+IncludeDir["ImGui"] = "PolyEngien/vendor/ImGui"
+IncludeDir["glm"] = "PolyEngien/vendor/glm"
 
 group "Dependencies"
     include "PolyEngien/vendor/GLFW"
@@ -37,15 +37,18 @@ project "PolyEngien"
 
     files { 
         "%{prj.name}/src/**.h", 
-        "%{prj.name}/src/**.cpp" 
+        "%{prj.name}/src/**.cpp",
+        "%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
     }
 
     includedirs {
         "%{prj.name}/vendor/spdlog/include",
         "%{prj.name}/src",
-        "%{includeDir.GLFW}",
-        "%{includeDir.Glad}",
-        "%{includeDir.ImGui}"
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.Glad}",
+        "%{IncludeDir.ImGui}",
+        "%{IncludeDir.glm}"
     }
 
     links {
@@ -103,7 +106,8 @@ project "PolyViewer"
 
     includedirs {
         "PolyEngien/vendor/spdlog/include",
-        "PolyEngien/src"
+        "PolyEngien/src",
+        "%{IncludeDir.glm}"
     }
 
     links {

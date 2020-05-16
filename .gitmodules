@@ -1,9 +1,11 @@
 [submodule "PolyEngien/vendor/spdlog"]
 	path = PolyEngien/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+
 [submodule "PolyEngien/vendor/GLFW"]
 	path = PolyEngien/vendor/GLFW
 	url = https://github.com/TheCherno/glfw
+
 [submodule "PolyEngien/vendor/ImGui"]
 	path = PolyEngien/vendor/ImGui
 	url = https://github.com/thecherno/imgui
