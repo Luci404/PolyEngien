@@ -8,3 +8,6 @@
 	path = PolyEngien/vendor/ImGui
 	url = https://github.com/thecherno/imgui
 
+[submodule "PolyEngien/vendor/glm"]
+	path = PolyEngien/vendor/glm
+	url = https://github.com/g-truc/glm
