@@ -1,11 +1,15 @@
 #pragma once
 
 #ifdef PE_PLATFORM_WINDOWS
+#if PE_DYNAMIC_LINK
 	#ifdef PE_BUILD_DLL
 		#define POLYENGIEN_API __declspec(dllexport) 
 	#else	
 		#define POLYENGIEN_API __declspec(dllimport) 
 	#endif
+#else
+	#define POLYENGIEN_API
+#endif
 #else
 	#error Poly engien only supports Windows!
 #endif

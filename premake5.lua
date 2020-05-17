@@ -25,10 +25,11 @@ group ""
 
 project "PolyEngien"
     location "PolyEngien"
-    kind "SharedLib"
+    kind "StaticLib"
     language "C++"
-    staticruntime "off"
-   
+    cppdialect "C++17"
+    staticruntime "on"
+
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
@@ -59,34 +60,30 @@ project "PolyEngien"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
         systemversion "latest" 
         
         defines {
             "PE_PLATFORM_WINDOWS",
             "PE_BUILD_DLL",
             "GLFW_INCLUDE_NONE",
-            "IMGUI_IMPL_OPENGL_LOADER_GLAD"
-        }
-
-        postbuildcommands {
-            ("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/PolyViewer/\"")
+            "IMGUI_IMPL_OPENGL_LOADER_GLAD",
+            "_CRT_SECURE_NO_WARNINGS"
         }
     
     filter "configurations:Debug"
         defines { "PE_DEBUG" }
-        symbols "On"
+        symbols "on"
        	runtime "Debug"
 
     filter "configurations:Release"
         defines { "PE_RELEASE" }
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
     filter "configurations:Dist"
         defines { "PE_DIST" }
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
 
 
@@ -94,7 +91,8 @@ project "PolyViewer"
     location "PolyViewer"
     kind "ConsoleApp"
     language "C++"
-    staticruntime "off"
+    cppdialect "C++17"
+    staticruntime "on"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -116,7 +114,6 @@ project "PolyViewer"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
         systemversion "latest" 
         
         defines {
@@ -126,14 +123,14 @@ project "PolyViewer"
     filter "configurations:Debug"
         defines { "PE_DEBUG" }
         runtime "Debug"
-        symbols "On"
+        symbols "on"
 
     filter "configurations:Release"
         defines { "PE_RELEASE" }
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
     filter "configurations:Dist"
         defines { "PE_DIST" }
         runtime "Release"
-        optimize "On"
+        optimize "on"
