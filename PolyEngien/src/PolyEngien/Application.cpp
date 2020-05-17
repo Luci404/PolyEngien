@@ -1,6 +1,8 @@
 #include "pepch.h"
 #include "PolyEngien/Application.h"
 
+#include "PolyEngien/Log.h"
+
 #include <glad/glad.h>
 
 #include <PolyEngien/Input.h>
@@ -18,6 +20,9 @@ namespace PolyEngien {
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
+
+		m_ImGuiLayer = new ImGuiLayer();
+		PushOverlay(m_ImGuiLayer);
 	}
 
 	Application::~Application()
@@ -40,12 +45,8 @@ namespace PolyEngien {
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
-
-		// Window Close Event
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowClose));
 
-		//PE_CORE_TRACE("{0}", e);
-	
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
 		{
 			(*--it)->OnEvent(e);
@@ -66,6 +67,11 @@ namespace PolyEngien {
 
 			auto [x, y] = Input::GetMousePosition();
 			PE_CORE_TRACE("{0}, {1}", x, y);
+
+			m_ImGuiLayer->Begin();
+			for (Layer* layer : m_LayerStack)
+				layer->OnImGuiRender();
+			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
 		}

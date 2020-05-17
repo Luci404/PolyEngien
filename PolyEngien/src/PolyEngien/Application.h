@@ -7,6 +7,8 @@
 #include "PolyEngien/Events/ApplicationEvent.h"
 #include "PolyEngien/Events/Event.h"
 
+#include "PolyEngien/imgui/ImGuiLayer.h"
+
 namespace PolyEngien {
 
 	class POLYENGIEN_API Application
@@ -29,6 +31,7 @@ namespace PolyEngien {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 	private:

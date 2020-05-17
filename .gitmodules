@@ -6,9 +6,10 @@
 	path = PolyEngien/vendor/GLFW
 	url = https://github.com/TheCherno/glfw
 
-[submodule "PolyEngien/vendor/ImGui"]
-	path = PolyEngien/vendor/ImGui
+[submodule "PolyEngien/vendor/imgui"]
+	path = PolyEngien/vendor/imgui
 	url = https://github.com/thecherno/imgui
+	branch = docking
 
 [submodule "PolyEngien/vendor/glm"]
 	path = PolyEngien/vendor/glm

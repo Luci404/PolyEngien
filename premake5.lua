@@ -12,13 +12,13 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "PolyEngien/vendor/GLFW/include"
 IncludeDir["Glad"] = "PolyEngien/vendor/Glad/include"
-IncludeDir["ImGui"] = "PolyEngien/vendor/ImGui"
+IncludeDir["ImGui"] = "PolyEngien/vendor/imgui"
 IncludeDir["glm"] = "PolyEngien/vendor/glm"
 
 group "Dependencies"
     include "PolyEngien/vendor/GLFW"
     include "PolyEngien/vendor/Glad"
-    include "PolyEngien/vendor/ImGui"
+    include "PolyEngien/vendor/imgui"
 group ""
 
 
@@ -107,6 +107,7 @@ project "PolyViewer"
     includedirs {
         "PolyEngien/vendor/spdlog/include",
         "PolyEngien/src",
+        "PolyEngien/vendor",
         "%{IncludeDir.glm}"
     }
 
