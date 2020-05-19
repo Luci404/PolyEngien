@@ -7,11 +7,9 @@ extern PolyEngien::Application* PolyEngien::CreateApplication();
 int main(int argc, char** argv)
 {
 	PolyEngien::Log::Init();
-	PE_CORE_CRITICAL("Initialized Log!");
-	PE_INFO("Initialized Log!");
+	PE_CORE_INFO("Initialized Log!");
 
-
-		auto app = PolyEngien::CreateApplication();
+	auto app = PolyEngien::CreateApplication();
 	app->Run();
 	delete app;
 }
