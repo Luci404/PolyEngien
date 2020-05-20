@@ -1,8 +1,8 @@
 #pragma once
 
 #include "PolyEngien/Core.h"
+#include "PolyEngien/Core/Timestep.h"
 #include "PolyEngien/Events/Event.h"
-
 
 namespace PolyEngien {
 	class POLYENGIEN_API Layer
@@ -13,7 +13,7 @@ namespace PolyEngien {
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 
