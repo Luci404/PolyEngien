@@ -1,5 +1,5 @@
 # Generated binaries
-bin/
+/bin/
 bin-int/
 
 # Visual Studio files and folder
