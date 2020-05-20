@@ -13,6 +13,7 @@
 #include "PolyEngien/Renderer/Buffer.h"
 #include "PolyEngien/Renderer/VertexArray.h"
 
+#include "PolyEngien/Renderer/OrthographicCamera.h"
 
 namespace PolyEngien {
 
@@ -45,6 +46,8 @@ namespace PolyEngien {
 
 		std::shared_ptr<Shader> m_BlueShader;
 		std::shared_ptr<VertexArray> m_SquareVA;
+
+		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};
