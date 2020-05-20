@@ -9,6 +9,10 @@
 
 #include "PolyEngien/imgui/ImGuiLayer.h"
 
+#include "PolyEngien/Renderer/Shader.h"
+#include "PolyEngien/Renderer/Buffer.h"
+
+
 namespace PolyEngien {
 
 	class POLYENGIEN_API Application
@@ -36,8 +40,9 @@ namespace PolyEngien {
 		LayerStack m_LayerStack;
 
 		unsigned int m_VertexArray;
-		unsigned int m_VertexBuffer;
-		unsigned int m_IndexBuffer;
+		std::unique_ptr<VertexBuffer> m_VertexBuffer;
+		std::unique_ptr<IndexBuffer> m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
 	private:
 		static Application* s_Instance;
 	};
