@@ -156,9 +156,11 @@ public:
 		m_TextureShader.reset(PolyEngien::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
 
 		m_Texture = PolyEngien::Texture2D::Create("assets/textures/T_Checkerboard.png");
+		m_ChernoLogoTexture = PolyEngien::Texture2D::Create("assets/textures/ChernoLogo.png");
 
 		std::dynamic_pointer_cast<PolyEngien::OpenGLShader>(m_TextureShader)->Bind();
 		std::dynamic_pointer_cast<PolyEngien::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+
 	}
 
 	void OnUpdate(PolyEngien::Timestep ts) override
@@ -204,6 +206,10 @@ public:
 		m_Texture->Bind();
 		PolyEngien::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(2.0f)));
 
+
+		m_ChernoLogoTexture->Bind();
+		PolyEngien::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+
 		PolyEngien::Renderer::EndScene();
 	}
 
@@ -226,6 +232,7 @@ private:
 	PolyEngien::Ref<PolyEngien::VertexArray> m_SquareVA;
 
 	PolyEngien::Ref<PolyEngien::Texture2D> m_Texture;
+	PolyEngien::Ref<PolyEngien::Texture2D> m_ChernoLogoTexture;
 
 	PolyEngien::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
