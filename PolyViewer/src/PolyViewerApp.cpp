@@ -90,7 +90,7 @@ public:
 			}
 		)";
 
-		m_Shader.reset(PolyEngien::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = PolyEngien::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
 
 		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
@@ -124,15 +124,15 @@ public:
 			}
 		)";
 
-		m_FlatColorShader.reset(PolyEngien::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader = PolyEngien::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-		m_TextureShader.reset(PolyEngien::Shader::Create("assets/shaders/S_Texture.glsl"));
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/S_Texture.glsl");
 
 		m_Texture = PolyEngien::Texture2D::Create("assets/textures/T_Checkerboard.png");
 		m_ChernoLogoTexture = PolyEngien::Texture2D::Create("assets/textures/ChernoLogo.png");
 
-		std::dynamic_pointer_cast<PolyEngien::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<PolyEngien::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<PolyEngien::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<PolyEngien::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 
 	}
 
@@ -176,12 +176,15 @@ public:
 			}
 		}
 
+		auto textureShader = m_ShaderLibrary.Get("S_Texture");
+
 		m_Texture->Bind();
-		PolyEngien::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(2.0f)));
-
-
+		PolyEngien::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 		m_ChernoLogoTexture->Bind();
-		PolyEngien::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		PolyEngien::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+
+		// Triangle
+		// PolyEngien::Renderer::Submit(m_Shader, m_VertexArray);
 
 		PolyEngien::Renderer::EndScene();
 	}
@@ -198,14 +201,14 @@ public:
 	}
 
 private:
+	PolyEngien::ShaderLibrary m_ShaderLibrary;
 	PolyEngien::Ref<PolyEngien::Shader> m_Shader;
 	PolyEngien::Ref<PolyEngien::VertexArray> m_VertexArray;
 
-	PolyEngien::Ref<PolyEngien::Shader> m_FlatColorShader, m_TextureShader;
+	PolyEngien::Ref<PolyEngien::Shader> m_FlatColorShader;
 	PolyEngien::Ref<PolyEngien::VertexArray> m_SquareVA;
 
-	PolyEngien::Ref<PolyEngien::Texture2D> m_Texture;
-	PolyEngien::Ref<PolyEngien::Texture2D> m_ChernoLogoTexture;
+	PolyEngien::Ref<PolyEngien::Texture2D> m_Texture, m_ChernoLogoTexture;
 
 	PolyEngien::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
