@@ -20,6 +20,7 @@
 
 #include "PolyEngien/Renderer/Buffer.h"
 #include "PolyEngien/Renderer/Shader.h"
+#include "PolyEngien/Renderer/Texture.h"
 #include "PolyEngien/Renderer/VertexArray.h"
 
 #include "PolyEngien/Renderer/OrthographicCamera.h"

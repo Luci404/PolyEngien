@@ -21,7 +21,7 @@ public:
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		std::shared_ptr<PolyEngien::VertexBuffer> vertexBuffer;
+		PolyEngien::Ref<PolyEngien::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(PolyEngien::VertexBuffer::Create(vertices, sizeof(vertices)));
 		PolyEngien::BufferLayout layout = {
 			{ PolyEngien::ShaderDataType::Float3, "a_Position" },
@@ -31,7 +31,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		std::shared_ptr<PolyEngien::IndexBuffer> indexBuffer;
+		PolyEngien::Ref<PolyEngien::IndexBuffer> indexBuffer;
 		indexBuffer.reset(PolyEngien::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -44,7 +44,7 @@ public:
 			-0.5f,  0.5f, 0.0f
 		};
 
-		std::shared_ptr<PolyEngien::VertexBuffer> squareVB;
+		PolyEngien::Ref<PolyEngien::VertexBuffer> squareVB;
 		squareVB.reset(PolyEngien::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 		squareVB->SetLayout({
 			{ PolyEngien::ShaderDataType::Float3, "a_Position" }
@@ -52,7 +52,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		std::shared_ptr<PolyEngien::IndexBuffer> squareIB;
+		PolyEngien::Ref<PolyEngien::IndexBuffer> squareIB;
 		squareIB.reset(PolyEngien::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -166,7 +166,9 @@ public:
 			}
 		}
 
-		PolyEngien::Renderer::Submit(m_Shader, m_VertexArray);
+
+		//Triagle
+		//PolyEngien::Renderer::Submit(m_Shader, m_VertexArray); 
 
 		PolyEngien::Renderer::EndScene();
 	}
@@ -183,11 +185,11 @@ public:
 	}
 
 private:
-	std::shared_ptr<PolyEngien::Shader> m_Shader;
-	std::shared_ptr<PolyEngien::VertexArray> m_VertexArray;
+	PolyEngien::Ref<PolyEngien::Shader> m_Shader;
+	PolyEngien::Ref<PolyEngien::VertexArray> m_VertexArray;
 
-	std::shared_ptr<PolyEngien::Shader> m_FlatColorShader;
-	std::shared_ptr<PolyEngien::VertexArray> m_SquareVA;
+	PolyEngien::Ref<PolyEngien::Shader> m_FlatColorShader;
+	PolyEngien::Ref<PolyEngien::VertexArray> m_SquareVA;
 
 	PolyEngien::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;

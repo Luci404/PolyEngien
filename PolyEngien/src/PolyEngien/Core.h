@@ -1,6 +1,6 @@
 #pragma once
 
-#include <memory.h>
+#include <memory>
 
 #ifdef PE_PLATFORM_WINDOWS
 #if PE_DYNAMIC_LINK
