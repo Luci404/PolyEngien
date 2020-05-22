@@ -1,9 +1,9 @@
 #pragma once
 
-#include "PolyEngien/Core.h"
+#include "PolyEngien/Core/Core.h"
 
-#include "PolyEngien/Window.h"
-#include "PolyEngien/LayerStack.h"
+#include "PolyEngien/Core/Window.h"
+#include "PolyEngien/Core/LayerStack.h"
 #include "PolyEngien/Events/Event.h"
 #include "PolyEngien/Events/ApplicationEvent.h"
 

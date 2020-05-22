@@ -1,11 +1,11 @@
 #include "pepch.h"
-#include "PolyEngien/Application.h"
+#include "Application.h"
 
-#include "PolyEngien/Log.h"
+#include "PolyEngien/Core/Log.h"
 
 #include "PolyEngien/Renderer/Renderer.h"
 
-#include <PolyEngien/Input.h>
+#include <PolyEngien/Core/Input.h>
 
 #include <glfw/glfw3.h>
 

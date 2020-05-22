@@ -1,16 +1,16 @@
 #pragma once
 
-#include "PolyEngien/Application.h"
-#include "PolyEngien/Layer.h"
-#include "PolyEngien/Log.h"
+#include "PolyEngien/Core/Application.h"
+#include "PolyEngien/Core/Layer.h"
+#include "PolyEngien/Core/Log.h"
 
 #include "PolyEngien/Core/Timestep.h"
 
 // Input
-#include "PolyEngien/Input.h"
-#include "PolyEngien/KeyCodes.h"
-#include "PolyEngien/MouseButtonCodes.h"
-#include "PolyEngien/OrthographicCameraController.h"
+#include "PolyEngien/Core/Input.h"
+#include "PolyEngien/Core/KeyCodes.h"
+#include "PolyEngien/Core/MouseButtonCodes.h"
+#include "PolyEngien/Renderer/OrthographicCameraController.h"
 
 // GUI
 #include "PolyEngien/ImGui/ImGuiLayer.h"
@@ -27,4 +27,4 @@
 #include "PolyEngien/Renderer/OrthographicCamera.h"
 
 // Entry point
-#include "PolyEngien/EntryPoint.h"
+#include "PolyEngien/Core/EntryPoint.h"

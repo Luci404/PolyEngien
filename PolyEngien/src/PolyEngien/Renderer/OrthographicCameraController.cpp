@@ -1,8 +1,8 @@
 #include "pepch.h"
 #include "OrthographicCameraController.h"
 
-#include "PolyEngien/Input.h"
-#include "PolyEngien/KeyCodes.h"
+#include "PolyEngien/Core/Input.h"
+#include "PolyEngien/Core/KeyCodes.h"
 
 namespace PolyEngien {
 
