@@ -10,6 +10,7 @@
 #include "PolyEngien/Input.h"
 #include "PolyEngien/KeyCodes.h"
 #include "PolyEngien/MouseButtonCodes.h"
+#include "PolyEngien/OrthographicCameraController.h"
 
 // GUI
 #include "PolyEngien/ImGui/ImGuiLayer.h"
