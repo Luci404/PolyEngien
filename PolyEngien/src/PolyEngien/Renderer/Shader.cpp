@@ -18,7 +18,7 @@ namespace PolyEngien {
 		return nullptr;
 	}
 
-	Ref<Shader> Shader::Create(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc) 
+	Ref<Shader> Shader::Create(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
 	{
 		switch (Renderer::GetAPI())
 		{
@@ -42,21 +42,21 @@ namespace PolyEngien {
 		Add(name, shader);
 	}
 
-	PolyEngien::Ref<PolyEngien::Shader> ShaderLibrary::Load(const std::string& filepath)
+	Ref<Shader> ShaderLibrary::Load(const std::string& filepath)
 	{
 		auto shader = Shader::Create(filepath);
 		Add(shader);
 		return shader;
 	}
 
-	PolyEngien::Ref<PolyEngien::Shader> ShaderLibrary::Load(const std::string& name, const std::string& filepath)
+	Ref<Shader> ShaderLibrary::Load(const std::string& name, const std::string& filepath)
 	{
 		auto shader = Shader::Create(filepath);
 		Add(name, shader);
 		return shader;
 	}
 
-	PolyEngien::Ref<PolyEngien::Shader> ShaderLibrary::Get(const std::string& name)
+	Ref<Shader> ShaderLibrary::Get(const std::string& name)
 	{
 		PE_CORE_ASSERT(Exists(name), "Shader not found!");
 		return m_Shaders[name];

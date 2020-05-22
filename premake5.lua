@@ -46,6 +46,10 @@ project "PolyEngien"
 		"%{prj.name}/vendor/glm/glm/**.inl"
     }
 
+    defines {
+        "_CRT_SECURE_NO_WARNINGS"
+    }
+
     includedirs {
         "%{prj.name}/vendor/spdlog/include",
         "%{prj.name}/src",
@@ -67,11 +71,8 @@ project "PolyEngien"
         systemversion "latest" 
         
         defines {
-            "PE_PLATFORM_WINDOWS",
             "PE_BUILD_DLL",
-            "GLFW_INCLUDE_NONE",
-            "IMGUI_IMPL_OPENGL_LOADER_GLAD",
-            "_CRT_SECURE_NO_WARNINGS"
+            "GLFW_INCLUDE_NONE"
         }
     
     filter "configurations:Debug"
