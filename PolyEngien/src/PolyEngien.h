@@ -25,6 +25,3 @@
 #include "PolyEngien/Renderer/VertexArray.h"
 
 #include "PolyEngien/Renderer/OrthographicCamera.h"
-
-// Entry point
-#include "PolyEngien/Core/EntryPoint.h"
