@@ -17,6 +17,7 @@
 
 // Renderer
 #include "PolyEngien/Renderer/Renderer.h"
+#include "PolyEngien/Renderer/Renderer2D.h"
 #include "PolyEngien/Renderer/RenderCommand.h"
 
 #include "PolyEngien/Renderer/Buffer.h"

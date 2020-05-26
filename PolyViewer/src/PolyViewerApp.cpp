@@ -8,7 +8,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-//#include "Sandbox2D.h"
+#include "Sandbox2D.h"
 
 class ExampleLayer : public PolyEngien::Layer
 {
@@ -210,8 +210,8 @@ class PolyViewer : public PolyEngien::Application
 public:
 	PolyViewer() 
 	{
-		PushLayer(new ExampleLayer());
-		//PushLayer(new Sandbox2D());
+		//PushLayer(new ExampleLayer());
+		PushLayer(new Sandbox2D());
 	}
 
 	~PolyViewer() {}
