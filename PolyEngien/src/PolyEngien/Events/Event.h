@@ -1,9 +1,7 @@
 #pragma once
+#include "pepch.h"
 
 #include "PolyEngien/Core/Core.h"
-
-#include <string>
-#include <functional>
 
 namespace PolyEngien {
 

@@ -7,7 +7,7 @@
 #include "PolyEngien/Events/MouseEvent.h"
 
 namespace PolyEngien {
-	class POLYENGIEN_API ImGuiLayer : public Layer
+	class ImGuiLayer : public Layer
 	{
 	public:
 		ImGuiLayer();

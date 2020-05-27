@@ -5,7 +5,7 @@
 #include "PolyEngien/Events/Event.h"
 
 namespace PolyEngien {
-	class POLYENGIEN_API Layer
+	class Layer
 	{
 	public:
 		Layer(const std::string& name = "Layer");

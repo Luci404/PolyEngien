@@ -1,11 +1,7 @@
 #include "pepch.h"
-#include "LayerStack.h"
+#include "PolyEngien/Core/LayerStack.h"
 
 namespace PolyEngien {
-
-	LayerStack::LayerStack()
-	{
-	}
 
 	LayerStack::~LayerStack()
 	{

@@ -43,22 +43,6 @@
 	#error "Unknown platform!"
 #endif // End of platform detection
 
-
-// DLL support
-#ifdef PE_PLATFORM_WINDOWS
-	#if PE_DYNAMIC_LINK
-		#ifdef PE_BUILD_DLL
-			#define POLYENGIEN_API __declspec(dllexport)
-		#else
-			#define POLYENGIEN_API __declspec(dllimport)
-		#endif
-	#else
-		#define POLYENGIEN_API
-	#endif
-#else
-		#error PolyEngien only supports Windows!
-#endif // End of DLL support
-
 #ifdef PE_DEBUG
 	#define PE_ENABLE_ASSERTS
 #endif

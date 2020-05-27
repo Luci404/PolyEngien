@@ -1,5 +1,5 @@
 #include "pepch.h"
-#include "Application.h"
+#include "PolyEngien/Core/Application.h"
 
 #include "PolyEngien/Core/Log.h"
 
@@ -11,8 +11,6 @@
 
 namespace PolyEngien {
 
-	#define BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)
-
 	Application* Application::s_Instance = nullptr;
 
 	Application::Application()
@@ -20,13 +18,18 @@ namespace PolyEngien {
 		PE_CORE_ASSERT(!s_Instance, "Application already exists!")
 		s_Instance = this;
 
-		m_Window = std::unique_ptr<Window>(Window::Create());
-		m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
+		m_Window = Window::Create();
+		m_Window->SetEventCallback(PE_BIND_EVENT_FN(Application::OnEvent));
 
 		Renderer::Init();
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
+	}
+
+	Application::~Application()
+	{
+		Renderer::Shutdown();
 	}
 
 	void Application::PushLayer(Layer* layer)
@@ -44,8 +47,8 @@ namespace PolyEngien {
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowClose));
-		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(Application::OnWindowResize));
+		dispatcher.Dispatch<WindowCloseEvent>(PE_BIND_EVENT_FN(Application::OnWindowClose));
+		dispatcher.Dispatch<WindowResizeEvent>(PE_BIND_EVENT_FN(Application::OnWindowResize));
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
 		{

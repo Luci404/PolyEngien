@@ -1,9 +1,9 @@
 #pragma once
 
-#include "RenderCommand.h"
+#include "PolyEngien/Renderer/RenderCommand.h"
 
-#include "OrthographicCamera.h"
-#include "Shader.h"
+#include "PolyEngien/Renderer/OrthographicCamera.h"
+#include "PolyEngien/Renderer/Shader.h"
 
 namespace PolyEngien {
 
@@ -11,6 +11,8 @@ namespace PolyEngien {
 	{
 	public:
 		static void Init();
+		static void Shutdown();
+
 		static void OnWindowResize(uint32_t width, uint32_t height);
 
 		static void BeginScene(OrthographicCamera& camera);

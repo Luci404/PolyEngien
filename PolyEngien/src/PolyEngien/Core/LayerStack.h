@@ -1,16 +1,16 @@
 #pragma once
 
 #include "PolyEngien/Core/Core.h"
-#include "Layer.h"
+#include "PolyEngien/Core/Layer.h"
 
 #include <vector>
 
 namespace PolyEngien {
 
-	class POLYENGIEN_API LayerStack
+	class LayerStack
 	{
 	public:
-		LayerStack();
+		LayerStack() = default;
 		~LayerStack();
 
 		void PushLayer(Layer* layer);

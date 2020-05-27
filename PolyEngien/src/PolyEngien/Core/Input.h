@@ -4,7 +4,7 @@
 
 namespace PolyEngien {
 
-	class POLYENGIEN_API Input
+	class Input
 	{
 	protected:
 		Input() = default;

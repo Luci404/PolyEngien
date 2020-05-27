@@ -1,8 +1,8 @@
 #pragma once
 
-#include "OrthographicCamera.h"
+#include "PolyEngien/Renderer/OrthographicCamera.h"
 
-#include "Texture.h"
+#include "PolyEngien/Renderer/Texture.h"
 
 namespace PolyEngien {
 

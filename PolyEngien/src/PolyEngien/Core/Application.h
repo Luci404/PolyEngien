@@ -13,11 +13,11 @@
 
 namespace PolyEngien {
 
-	class POLYENGIEN_API Application
+	class Application
 	{
 	public:
 		Application();
-		virtual ~Application() = default;
+		virtual ~Application();
 
 		void Run();
 

@@ -15,5 +15,3 @@ namespace PolyEngien {
 		virtual void DrawIndexed(const Ref<VertexArray>& vertexArray) override;
 	};
 }
-
-

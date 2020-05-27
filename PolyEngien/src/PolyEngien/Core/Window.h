@@ -6,20 +6,21 @@
 #include "PolyEngien/Events/Event.h"
 
 namespace PolyEngien {
-	struct  WindowProperties
+	struct WindowProperties
 	{
 		std::string Title;
 		unsigned int Width;
 		unsigned int Height;
 
-		WindowProperties(const std::string& title = "Poly Engien",
+		WindowProperties(const std::string& title = "Hazel Engine",
 			unsigned int width = 1280,
 			unsigned int height = 720)
-			:Title(title), Width(width), Height(height)
+			: Title(title), Width(width), Height(height)
 		{
 		}
 	};
-	class POLYENGIEN_API Window
+
+	class Window
 	{
 	public:
 		using EventCallbackFunction = std::function<void(Event&)>;
@@ -38,6 +39,6 @@ namespace PolyEngien {
 
 		virtual void* GetNativeWindow() const = 0;
 
-		static Window* Create(const WindowProperties& properties = WindowProperties());
+		static Scope<Window> Create(const WindowProperties& props = WindowProperties());
 	};
 }

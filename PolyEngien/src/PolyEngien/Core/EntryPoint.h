@@ -1,4 +1,5 @@
 #pragma once
+#include "PolyEngien/Core/Core.h"
 
 #ifdef PE_PLATFORM_WINDOWS
 
@@ -14,6 +15,4 @@ int main(int argc, char** argv)
 	delete app;
 }
 
-#else
-#error Poly engien only supports Windows!
 #endif
