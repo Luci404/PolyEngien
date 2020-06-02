@@ -1,5 +1,7 @@
 #pragma once
 
+#include "PolyEngien/Core/Core.h"
+
 #include "PolyEngien/Core/Application.h"
 #include "PolyEngien/Core/Layer.h"
 #include "PolyEngien/Core/Log.h"
