@@ -15,6 +15,8 @@
 
 #include "PolyEngien/Core/Log.h"
 
+#include "PolyEngien/Debug/Instrumentor.h"
+
 #ifdef PE_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

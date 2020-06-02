@@ -64,7 +64,7 @@ namespace PolyEngien {
 			}
 			else
 			{
-				HZ_CORE_ERROR("Could not read from file '{0}'", filepath);
+				PE_CORE_ERROR("Could not read from file '{0}'", filepath);
 			}
 		}
 		else
