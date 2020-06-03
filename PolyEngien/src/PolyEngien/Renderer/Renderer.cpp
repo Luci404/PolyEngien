@@ -8,6 +8,8 @@ namespace PolyEngien {
 
 	void Renderer::Init()
 	{
+		PE_PROFILE_FUNCTION();
+
 		RenderCommand::Init();
 		Renderer2D::Init();
 	}
