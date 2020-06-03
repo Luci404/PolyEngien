@@ -11,7 +11,7 @@
 // Input
 #include "PolyEngien/Core/Input.h"
 #include "PolyEngien/Core/KeyCodes.h"
-#include "PolyEngien/Core/MouseButtonCodes.h"
+#include "PolyEngien/Core/MouseCodes.h"
 #include "PolyEngien/Renderer/OrthographicCameraController.h"
 
 // GUI
