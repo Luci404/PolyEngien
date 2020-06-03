@@ -5,6 +5,8 @@
 #include "PolyEngien/Events/MouseEvent.h"
 #include "PolyEngien/Events/KeyEvent.h"
 
+#include "PolyEngien/Renderer/Renderer.h"
+
 #include "Platform/OpenGL/OpenGLContext.h"
 
 namespace PolyEngien {
@@ -57,6 +59,10 @@ namespace PolyEngien {
 
 		{
 			PE_PROFILE_SCOPE("glfwCreateWindow");
+			#if defined(HZ_DEBUG)
+				if (Renderer::GetAPI() == RendererAPI::API::OpenGL)
+					glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
+			#endif
 			m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 			++s_GLFWWindowCount;
 		}
