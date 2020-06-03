@@ -12,11 +12,14 @@ Sandbox2D::Sandbox2D()
 
 void Sandbox2D::OnAttach()
 {
+	PE_PROFILE_FUNCTION();
+
 	m_CheckerboardTexture = PolyEngien::Texture2D::Create("assets/textures/T_Checkerboard.png");
 }
 
 void Sandbox2D::OnDetach()
 {
+	PE_PROFILE_FUNCTION();
 }
 
 void Sandbox2D::OnUpdate(PolyEngien::Timestep ts)
@@ -24,10 +27,7 @@ void Sandbox2D::OnUpdate(PolyEngien::Timestep ts)
 	PE_PROFILE_FUNCTION();
 
 	// Update
-	{
-		PE_PROFILE_SCOPE("CameraController::OnUpdate");
-		m_CameraController.OnUpdate(ts);
-	}
+	m_CameraController.OnUpdate(ts);
 
 	// Render
 	{
