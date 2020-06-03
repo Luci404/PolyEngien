@@ -1,5 +1,5 @@
 workspace "PolyEngien"
-    architecture "x64"
+    architecture "x86_64"
     startproject "PolyViewer"
     configurations { 
         "Debug", 
