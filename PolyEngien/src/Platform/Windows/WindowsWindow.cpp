@@ -20,10 +20,6 @@ namespace PolyEngien {
 		PE_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
 	}
 
-	Scope<Window> Window::Create(const WindowProperties& props)
-	{
-		return CreateScope<WindowsWindow>(props);
-	}
 
 	WindowsWindow::WindowsWindow(const WindowProperties& props)
 	{
