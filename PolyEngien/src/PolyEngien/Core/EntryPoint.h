@@ -1,5 +1,5 @@
 #pragma once
-#include "PolyEngien/Core/Core.h"
+#include "PolyEngien/Core/Base.h"
 
 #ifdef PE_PLATFORM_WINDOWS
 

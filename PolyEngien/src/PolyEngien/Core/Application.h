@@ -1,6 +1,6 @@
 #pragma once
 
-#include "PolyEngien/Core/Core.h"
+#include "PolyEngien/Core/Base.h"
 
 #include "PolyEngien/Core/Window.h"
 #include "PolyEngien/Core/LayerStack.h"
@@ -27,6 +27,8 @@ namespace PolyEngien {
 		void PushOverlay(Layer * layer);
 
 		Window& GetWindow() { return *m_Window; }
+
+		void Close();
 
 		static Application& Get() { return *s_Instance; }
 	private:
