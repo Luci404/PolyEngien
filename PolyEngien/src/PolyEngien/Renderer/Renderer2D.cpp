@@ -107,6 +107,8 @@ namespace PolyEngien
 	void Renderer2D::Shutdown()
 	{
 		PE_PROFILE_FUNCTION();
+
+		delete[] s_Data.QuadVertexBufferBase;
 	}
 
 	void Renderer2D::BeginScene(const OrthographicCamera& camera)
