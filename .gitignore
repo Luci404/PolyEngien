@@ -3,6 +3,9 @@
 !vendor/bin/premake/
 bin-int/
 
+# PolyEngien Files
+*.pelog
+
 # Visual Studio files and folder
 .vs/
 **.sln
