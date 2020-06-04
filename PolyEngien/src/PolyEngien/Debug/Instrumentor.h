@@ -158,7 +158,7 @@ namespace PolyEngien {
 	};
 }
 
-#define PE_PROFILE 1
+#define PE_PROFILE 0
 #if PE_PROFILE
 	// Resolve which function signature macro will be used. Note that this only
 	// is resolved when the (pre)compiler starts, so the syntax highlighting
