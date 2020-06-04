@@ -52,6 +52,11 @@ namespace PolyEngien {
 		layer->OnAttach();
 	}
 
+	void Application::Close()
+	{
+		m_Running = false;
+	}
+
 	void Application::OnEvent(Event& e)
 	{
 		PE_PROFILE_FUNCTION();
