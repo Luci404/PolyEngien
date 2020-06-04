@@ -47,7 +47,8 @@ project "PolyEngien"
     }
 
     defines {
-        "_CRT_SECURE_NO_WARNINGS"
+        "_CRT_SECURE_NO_WARNINGS",
+		"GLFW_INCLUDE_NONE"
     }
 
     includedirs {
@@ -69,11 +70,6 @@ project "PolyEngien"
 
     filter "system:windows"
         systemversion "latest" 
-        
-        defines {
-            "PE_BUILD_DLL",
-            "GLFW_INCLUDE_NONE"
-        }
     
     filter "configurations:Debug"
         defines { "PE_DEBUG" }
