@@ -24,6 +24,7 @@
 
 #include "PolyEngien/Renderer/Buffer.h"
 #include "PolyEngien/Renderer/Shader.h"
+#include "PolyEngien/Renderer/Framebuffer.h"
 #include "PolyEngien/Renderer/Texture.h"
 #include "PolyEngien/Renderer/VertexArray.h"
 

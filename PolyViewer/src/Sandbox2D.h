@@ -20,6 +20,7 @@ private:
 	// Temp
 	PolyEngien::Ref<PolyEngien::VertexArray> m_SquareVA;
 	PolyEngien::Ref<PolyEngien::Shader> m_FlatColorShader;
+	PolyEngien::Ref<PolyEngien::Framebuffer> m_Framebuffer;
 
 	PolyEngien::Ref<PolyEngien::Texture2D> m_CheckerboardTexture;
 
