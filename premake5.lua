@@ -1,6 +1,6 @@
 workspace "PolyEngien"
     architecture "x86_64"
-    startproject "PolyViewer"
+    startproject "KronosEditor"
     configurations { 
         "Debug", 
         "Release", 
