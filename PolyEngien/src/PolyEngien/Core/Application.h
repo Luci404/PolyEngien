@@ -18,13 +18,13 @@ namespace PolyEngien {
 	class Application
 	{
 	public:
-		Application();
+		Application(const std::string& name = "PolyEngien App");
 		virtual ~Application();
 
-		void OnEvent(Event & e);
+		void OnEvent(Event& e);
 
-		void PushLayer(Layer * layer);
-		void PushOverlay(Layer * layer);
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* layer);
 
 		Window& GetWindow() { return *m_Window; }
 
@@ -33,7 +33,7 @@ namespace PolyEngien {
 		static Application& Get() { return *s_Instance; }
 	private:
 		void Run();
-		bool OnWindowClose(WindowCloseEvent & e);
+		bool OnWindowClose(WindowCloseEvent& e);
 		bool OnWindowResize(WindowResizeEvent& e);
 	private:
 		std::unique_ptr<Window> m_Window;
