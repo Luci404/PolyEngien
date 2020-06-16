@@ -75,10 +75,7 @@ namespace PolyEngien {
 	{
 		PE_PROFILE_FUNCTION();
 
-		// Note: Switch this to true to enable dockspace
-		static bool dockingEnabled = true;
-		if (dockingEnabled)
-		{
+	
 			static bool dockspaceOpen = true;
 			static bool opt_fullscreen_persistant = true;
 			bool opt_fullscreen = opt_fullscreen_persistant;
@@ -148,30 +145,26 @@ namespace PolyEngien {
 			ImGui::Text("Indices: %d", stats.GetTotalIndexCount());
 
 			ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
+			ImGui::End();
 
+			ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{0, 0 });
+			ImGui::Begin("Viewport");
+			ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
+			if (m_ViewportSize != *((glm::vec2*) & viewportPanelSize))
+			{
+				m_Framebuffer->Resize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
+				m_ViewportSize = { viewportPanelSize.x, viewportPanelSize.y };
+
+				m_CameraController.OnResize(viewportPanelSize.x, viewportPanelSize.y);
+			}
 			uint32_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
-			ImGui::Image((void*)textureID, ImVec2{ 1280, 720 }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
+			ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x, m_ViewportSize.y }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
+			ImGui::End();
+			ImGui::PopStyleVar();
+
 			ImGui::End();
 
-			ImGui::End();
-		}
-		else
-		{
-			ImGui::Begin("Settings");
-
-			auto stats = Renderer2D::GetStats();
-			ImGui::Text("Renderer2D Stats:");
-			ImGui::Text("Draw Calls: %d", stats.DrawCalls);
-			ImGui::Text("Quads: %d", stats.QuadCount);
-			ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
-			ImGui::Text("Indices: %d", stats.GetTotalIndexCount());
-
-			ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
-
-			uint32_t textureID = m_CheckerboardTexture->GetRendererID();
-			ImGui::Image((void*)textureID, ImVec2{ 1280, 720 }, ImVec2{0, 1}, ImVec2{1, 0});
-			ImGui::End();
-		}
+		
 	}
 
 	void EditorLayer::OnEvent(Event& e)

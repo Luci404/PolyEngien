@@ -17,7 +17,7 @@ int main(int argc, char** argv)
 	app->Run();
 	PE_PROFILE_END_SESSION();
 
-	PE_PROFILE_BEGIN_SESSION("Startup", "PolyEngienProfile-Shutdown.json");
+	PE_PROFILE_BEGIN_SESSION("Shutdown", "PolyEngienProfile-Shutdown.json");
 	delete app;
 	PE_PROFILE_END_SESSION();
 }
