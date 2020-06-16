@@ -77,7 +77,6 @@ void Sandbox2D::OnImGuiRender()
 
 	ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
 	ImGui::End();
-
 }
 
 void Sandbox2D::OnEvent(PolyEngien::Event& e)

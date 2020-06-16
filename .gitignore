@@ -14,8 +14,7 @@ bin-int/
 **.vcxproj.user
 
 # Other
-imgui.ini
-PolyEngien.pelog
-PolyEngienProfile-Runtime.json
-PolyEngienProfile-Shutdown.json
-PolyEngienProfile-Startup.json
+**/imgui.ini
+**/PolyEngienProfile-Runtime.json
+**/PolyEngienProfile-Shutdown.json
+**/PolyEngienProfile-Startup.json
